@@ -11,12 +11,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Map;
 
-
 public class CashierPanel extends JPanel {
     private ProductoController productoController;
     private UsuarioController usuarioController;
 
-    public CashierPanel(MainFrame mainFrame) {
+    public CashierPanel(MainFrame mainFrame, UsuarioController usuarioController) {
     	// Llamar a los controladores
         this.productoController = new ProductoController();
         this.usuarioController = new UsuarioController();
@@ -36,6 +35,8 @@ public class CashierPanel extends JPanel {
         panel.add(new JLabel("Precio del Producto:"));
         JTextField precioField = new JTextField();
         panel.add(precioField);
+        
+        // Añadir botones con su repectiva función
 
         JButton addButton = new JButton("Agregar Producto");
         panel.add(addButton);
@@ -46,8 +47,8 @@ public class CashierPanel extends JPanel {
         JButton viewUsersButton = new JButton("Ver Usuarios");
         panel.add(viewUsersButton);
 
-        JButton viewCashiersButton = new JButton("Ver Cajeros");
-        panel.add(viewCashiersButton);
+        JButton viewProductsButton = new JButton("Ver Productos");
+        panel.add(viewProductsButton);
 
         JButton backButton = new JButton("Volver al Inicio");
         panel.add(backButton);
@@ -99,7 +100,7 @@ public class CashierPanel extends JPanel {
         });
 
         // Función de cajeros para ver usuarios registrados
-        // 
+        
         viewUsersButton.addActionListener(e -> {
             StringBuilder usersList = new StringBuilder("Usuarios registrados:\n");
 
@@ -110,19 +111,15 @@ public class CashierPanel extends JPanel {
             JOptionPane.showMessageDialog(this, usersList.toString());
         });
 
-        viewCashiersButton.addActionListener(e -> {
-            StringBuilder cashiersList = new StringBuilder("Cajeros registrados:\n");
+        viewProductsButton.addActionListener(e -> {
+            StringBuilder productsList = new StringBuilder("Productos registrados:\n");
 
-            Map<String, Usuario> usuarios = usuarioController.listarUsuarios();
-            // Comprobar privilegio
-            usuarios.forEach((key, usuario) -> {
-                if (usuario instanceof Cajero) {
-                    cashiersList.append(usuario.toString()).append("\n");
-                }
-            });
+            Map<String, Producto> productos = productoController.listarProductos();
+            productos.forEach((key, producto) -> productsList.append(producto.toString()).append("\n"));
 
-            JOptionPane.showMessageDialog(this, cashiersList.toString());
+            JOptionPane.showMessageDialog(this, productsList.toString());
         });
+
 
         backButton.addActionListener(e -> mainFrame.showLoginPanel());
     }

@@ -4,11 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 
 import main.java.com.anahuac.tiendaproyecto.MainFrame;
+import main.java.com.anahuac.tiendaproyecto.controllers.UsuarioController;
 
 // Se escogió la librería swing para trabajar con ui
 // Colocamos el JPanel en el Jframe que implementará todos los paneles
 public class LoginPanel extends JPanel {
-    public LoginPanel(MainFrame mainFrame) {
+    public LoginPanel(MainFrame mainFrame, UsuarioController usuarioController) {
         setLayout(new BorderLayout());
 
         JPanel panel = new JPanel(new GridLayout(3, 2));

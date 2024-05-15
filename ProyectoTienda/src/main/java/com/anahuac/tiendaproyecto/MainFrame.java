@@ -30,10 +30,10 @@ public class MainFrame extends JFrame {
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
 
-        LoginPanel loginPanel = new LoginPanel(this);
+        LoginPanel loginPanel = new LoginPanel(this, usuarioController);
         RegisterPanel registerPanel = new RegisterPanel(this, usuarioController);
         UserPanel userPanel = new UserPanel(this); // Asegurarse que se pueda volver a la instancia del frame
-        CashierPanel cashierPanel = new CashierPanel(this);
+        CashierPanel cashierPanel = new CashierPanel(this, usuarioController);
 
         mainPanel.add(loginPanel, "Login");
         mainPanel.add(registerPanel, "Register");
