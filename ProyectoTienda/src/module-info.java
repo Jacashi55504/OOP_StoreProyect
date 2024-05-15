@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * 
- */
-module com.anahuac.tiendaproyecto {
-}
