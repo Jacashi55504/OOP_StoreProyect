@@ -6,7 +6,7 @@ public class Cliente extends Usuario {
         super(nombre, usuario, contrasena);
     }
 
-    // Override al string, getNombre heredado
+    // Override a la clase string, getNombre heredado
     @Override
     public String toString() {
         return "Cliente{" +

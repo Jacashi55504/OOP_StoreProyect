@@ -1,10 +1,12 @@
 package main.java.com.anahuac.tiendaproyecto.models;
 
 // Clase abstracta que será heredada por las clases 
+// Protected para proteción de datos
+
 public abstract class Usuario {
-    private String nombre;
-    private String usuario;
-    private String contrasena;
+    protected String nombre;
+    protected String usuario;
+    protected String contrasena;
 
     public Usuario(String nombre, String usuario, String contrasena) {
         this.nombre = nombre;
@@ -44,5 +46,6 @@ public abstract class Usuario {
                 "nombre='" + nombre + '\'' +
                 ", usuario='" + usuario + '\'' +
                 '}';
+        // La contraseña es secreta
     }
 }
